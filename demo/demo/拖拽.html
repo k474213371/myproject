@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8"/>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color:firebrick ;
+		}
+	</style>
+</head>
+<body>
+<div id="">
+	
+</div>
+<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('div').mousedown(function(ev){
+			var a = ev.pageX - $(this).offset().left;
+			var b = ev.pageY - $(this).offset().top;
+
+			$(this).mousemove(function(e){
+				var x =e.pageX-a
+				var y =e.pageY-b
+				
+				$(this).offset({
+					top:y,left:x})
+			})
+			$(this).css('background-color','red')
+		}).mouseup(function(){
+			$(this).off('mousemove')
+			$(this).css('background-color','firebrick')
+		})
+			
+	})
+	
+</script>
+</body>
+</html>

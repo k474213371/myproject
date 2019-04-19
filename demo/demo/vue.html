@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8"/>
+	<style type="text/css">
+		#x{
+			width: 600px;
+			margin: 100px auto;
+			background-color: blanchedalmond;
+		}
+		#but{
+			background-color: brown;
+			border: 0px;
+			width: 50px;
+			height: 20px;
+		}
+		table{
+			margin: 100px auto;
+			padding: 0;
+			background-color: bisque;
+			text-align: center;
+			width: 400px;
+
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="dd" >
+		<fieldset id="x">
+			<legend>输入</legend>
+			姓名：<input type="text" name="" id="" value="" v-model='item.name' />
+			年龄：<input type="text" name="" id="" value="" v-model='item.age' />
+			<p>性别：
+			<select v-model='item.sex'>
+				<option value ="男" >男</option>
+				<option value ="女" >女</option>
+			</select>
+			</p>
+			<input type="submit" name="" id="but" value="提交" @click='submit()'/>			
+		</fieldset>
+		<table border="1" cellspacing="" cellpadding="">
+		<thead>
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+			<th><div class="mui-input-row mui-search">
+				<input type="search"class="mui-input-clear" placeholder=""v-model='ke'>
+				<button @click='search(ke)' type="button" class="mui-btn mui-btn-blue mui-btn-outlined">搜索</button>
+			</div>
+			</th>
+		</tr>
+		</thead>
+		
+		<tbody>
+			<tr v-for='item in search(ke)'>
+				<td >{{item.name}}</td>
+				<td >{{item.age}}</td>
+				<td>{{item.sex}}</td>
+				<td><button>删除</button></td>
+			</tr>
+		</tbody>
+		</table>
+		
+	</div>
+	<!-- <div id='p'>
+		<myss></myss>
+	</div>
+	<template id="e">
+		<div >
+			<span></span>
+		</div>
+	</template> -->
+	<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		Vue.component('myss',{
+		template:'#e'	
+		})
+// 		var vm = new Vue({
+// 		 el:'#p'
+// 			})
+		var vm = new Vue({
+			el:'#dd',
+			data:{
+					ke:'',
+					item:{
+						name:'',
+						age:0,
+						sex:''
+					},
+					item1:[{
+						name:'张三',
+						age:20,
+						sex:'男'
+					},{
+						name:'张三',
+						age:22,
+						sex:'男'
+					},{
+						name:'张三',
+						age:28,
+						sex:'男'
+					},
+					]
+					},
+			methods:{
+				submit(){
+					
+					if(this.item.name==''){
+						alert('名字不能为空')
+						return;
+					}else if(this.item.age==''){
+						alert('年龄不能为空')
+						return;
+					}else if(this.item.sex==''){
+						alert('请选择性别')
+					}else{
+						this.item1.unshift(this.item)
+					}
+					this.item = {name:'',age:0,sex:''}
+					
+				},
+				search(ke){
+					var list = [];
+					this.item1.forEach(function(i){
+						console.log(typeof(i.name))
+						if(i.name.indexOf(ke)!=-1){
+							list.unshift(i)
+						}
+					})
+					return list
+				}
+			}
+			
+		})
+	</script>
+</body>
+</html>

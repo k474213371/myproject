@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮播图</title>
+	<meta charset="utf-8">
+</head>
+<style>
+	div{
+		width: 50px;
+		height: 50px;
+		border: 1px solid red;
+		margin: 100px auto;
+		position:relative ;
+	}
+	img{
+		width: 50px;
+		height: 50px;
+	}
+	.a{
+		position: absolute;
+		z-index: 3;
+	}
+	.b{
+		position: absolute;
+		z-index: 2;
+		
+	}
+	.c{	
+		position: absolute;
+		z-index: 1;
+	}
+	.d{
+		width: 0px;
+		height: 0px;
+		border: 10px solid black;
+		z-index: 4;
+		padding: 0px;
+		border-bottom-color:  transparent;
+		border-top-color:  transparent;
+		border-left-color: transparent;
+		position: absolute;
+		top: 15px;
+		right: 50px;
+		background-color: transparent;
+		outline: none;
+	}
+	.f{
+		width: 0px;
+		height: 0px;
+		border: 10px solid black;
+		z-index: 4;
+		padding: 0px;
+		border-bottom-color: transparent;
+		border-top-color: transparent;
+		border-right-color:transparent;
+		background-color: transparent;
+		position: absolute;
+		left:50px;
+		top: 15px;
+		outline: none;
+		}
+</style>
+<body>
+	<div>
+		<span class='g'>
+			<img src="1.png" class="a" alt="">
+			<img src="2.png" class="b" alt="">
+			<img src="3.png" class="c" alt="">	
+		</span>
+		
+		<button class="d"></button>
+		<button class="f"></button>
+	</div>
+		
+		
+	<script src="../jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			var a =0;
+			var b =$('span img').length 
+			
+			// 鼠标移入移出
+			$('div').mouseenter(function(){
+				clearInterval(time)
+				console.log('1')
+			}).mouseleave(function(){
+				time = setInterval(function (){
+					a++
+					if(a>=b){
+						a=0
+					}
+					anima(a);
+					console.log(a)
+				},3000)
+			})
+			// 定时器 播放轮播图
+			time = setInterval(vv,3000)
+			function vv(){
+					a++
+					if(a>=b){
+						a=0
+					}
+					anima(a);	
+		
+					// console.log(a)
+					// console.log(a)
+					}
+				
+			function anima(b){
+				$('span img').eq(b).fadeIn(1000)
+				.siblings()
+				.fadeOut(1000);}
+				// 左右键切换移动
+				// 白 坦克 白猫
+			$('div button.f').click(function(){
+				vv()
+				})
+				console.log(a)
+				
+			$('div button.d').click(function(){
+				console.log(a)
+				a--
+				if(a<0){
+					a=2
+				}
+				console.log(a)
+				anima(a)
+			})
+		})
+		
+			
+		
+		
+				
+	</script>
+
+</body>
+</html>

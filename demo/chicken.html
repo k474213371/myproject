@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/* 鸡的样式 */
+		*{margin: 0px;padding: 0px;}
+		body{background-color: #00442a;
+			background-size: 100%;}	
+		.main{width: 0; height: 0; border:100px solid white ;border-bottom-color:transparent;
+			border-left-color: transparent;
+			position: absolute;
+			top: 200px;
+			left:100px;
+			z-index: 1;
+		}
+		.head1{width:0;height: 0;border: 60px solid red; border-radius: 50%;position: absolute;left:180px;top:83px;
+		}
+		.head2{width:0;height: 0;border: 45px solid red; border-radius: 50%;position: absolute;left:140px;top:140px;
+		}
+		.mouth1{
+			width:0;height: 0;border: 20px solid #fdb801;
+			position:absolute; left:30px;
+			
+		}
+		.mouth2{
+			width:0;height: 0;border: 20px solid #fdb801;
+			border-left-color: transparent;
+		}
+		.mouth{
+			position: absolute;
+			left: 70px; top:200px;
+		}
+		.beard1{
+			width: 40px; height: 60px;
+			background: red;
+		}
+		.beard2{
+			width: 0;height: 0;
+			border: 20px solid red;
+			border-radius: 0px 0px 20px 20px;
+		}
+		.beard{
+			position: absolute;
+			left:110px;
+			top:210px;
+		}
+		.eye{
+			width: 0px;height: 0px;
+			border: 10px solid #00442a;
+			border-radius: 50%; 
+			position: absolute;
+			left:130px;
+			top:205px;
+			z-index: 1;
+		}
+		.chicken{
+			width: 180px ; height: 160px;
+			position: absolute;
+			top:30%;
+			left:40%;
+			margin-left:-90px;
+			margin-top:-80px;
+		
+		}
+		.chicken:hover{
+			transform: translate(-150px,0px);
+			transform: scale(0.5);
+			transition-duration: 5s;
+		}
+		/*  飘心的样式*/
+		body {
+            overflow: hidden;
+        }
+		.snowfall-flakes::before,
+					.snowfall-flakes::after
+					{
+						content: "";
+						height: 15px;
+						width: 10px;
+						background-color: red;
+						display: inline-block;
+						border-radius: 50px 50px 0 0;
+						position: absolute;
+		
+					}
+					.snowfall-flakes::after{
+						
+						left:4px;
+						transform: rotate(45deg);
+					}
+					.snowfall-flakes::before{
+						transform: rotate(-45deg);
+					}
+	</style>
+</head>
+<body>
+	<!--  #fdb801 嘴的颜色黄色
+	#00442a 背景绿 红#f8342c-->
+	<a href="main.html">
+		<div class="chicken">
+			<div class="main"></div>
+			<div class="head1"></div>
+			<div class="head2"></div>
+			<div class="mouth">
+			<div class="mouth1"></div>
+			<div class="mouth2"></div>
+			</div>
+			<div class="beard">
+				<div class="beard1"></div>
+				<div class="beard2"></div>
+			</div>
+			<div class="eye"></div>	
+		</div>
+	</a>
+	<!-- 引入JQ -->	
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="oo.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).snowfall('clear');
+		$(document).snowfall(
+		{  
+			flakeCount:50,
+			minSpeed:1, //最小速度
+			maxSpeed:5 //最大速度
+		})
+		$(window).resize(function(){
+			$(document).snowfall('clear');
+			$(document).snowfall(
+			{  
+				flakeCount:50,
+				minSpeed:1, //最小速度
+				maxSpeed:5 //最大速度
+			})
+		})
+	</script>
+</body>
+</html>

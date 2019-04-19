@@ -1,0 +1,50 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:100%;
+	color:#333;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+
+}
+body a:hover{
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
+	text-decoration:none;
+	color: #2B542C;
+}
+
+
+.navbar-default,
+.header{
+	background-color: #000000;
+	/* height:80px; */
+	padding: 0.01em;
+	border: 0px;
+	position: relative;
+}
+
+
+.bg-success{
+
+}
+.carousel-inner .item .img{
+	width: 100%;
+	height: 400px;
+	
+}
+#myCarousel{
+	width: 50%;
+	height: 100%;
+	margin: auto;
+}
+.left{
+	color: #3E8F3E;
+}
+footer{
+	position: relative;
+}

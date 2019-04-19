@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body style="margin:0;padding: 0;" >
+	<div class="f" style="width:100px;height: 100px;	background-color: red;position: absolute;left:0px;top:0px;right:0px;bottom:0px;
+		"></div>
+		<script type="text/javascript">
+		var b = document.getElementsByClassName("f")[0];		
+		document.onkeydown =function(e){
+			var event = e|| window.event;
+
+			switch(event.keyCode){
+				case 38:
+				b.style.top = parseInt(b.style.top) - 2 +"px"
+
+				break;
+				case 39:
+				// 左
+				b.style.left = parseInt(b.style.left) + 2 +"px"
+				break;
+				case 37:
+				b.style.left = parseInt(b.style.left) - 2 +"px"
+				break;
+				case 40:
+				// 下
+				b.style.top = parseInt(b.style.top) + 2 +"px"
+				break;
+
+			}
+		}
+		</script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+*{
+	margin: 0;
+	padding: 0;
+
+}
+.a,
+.b,
+.c,
+.d,
+.f{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border: 10px solid red;
+	border-radius: 50%;
+}
+.a{
+	border-color: #0f0f0f;
+}
+.b{
+	border-color: red;
+	left:100px;
+}
+.c{
+	border-color: yellow;
+	left:200px;
+}
+.d{
+	left:60px;
+	top:80px;
+	border-color: green;
+}
+.f{
+	left:150px;
+	top:80px;
+	border-color: blue;
+}
+.k{	
+	position:absolute;
+	left: 50%;
+	top:50%;
+	margin-left: -160px;
+	margin-top: -100px;
+	/*width:320px;
+	height: 200px;
+	border: 5px solid black;*/
+}
